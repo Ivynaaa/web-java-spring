@@ -23,7 +23,7 @@ public class UserDomain {
 
     private String creditCardNumber;
     //-- network
-    private CCNetworkDomain ccNetworkDomain;
+    private CCNetworkDomain ccNetwork;
 
     //-- User type
     private EnumUserType type;

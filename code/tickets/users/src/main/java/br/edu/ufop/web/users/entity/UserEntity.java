@@ -21,6 +21,7 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
+    @Column(nullable = false)
     private String name;
     private String email;
     @Column(nullable = false)
@@ -31,7 +32,7 @@ public class UserEntity {
     //-- credit card network
     @ManyToOne
     @JoinColumn(name = "credit_card_network_id")
-    private CCNetworkEntity ccNetworkEntity;
+    private CCNetworkEntity ccNetwork;
 
     private EnumUserType type;
 

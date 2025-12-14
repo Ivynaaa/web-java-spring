@@ -1,0 +1,76 @@
+@urlServer = http://localhost:3000
+###
+GET {{urlServer}}/users/status
+Content-Type: application/json
+
+###
+GET {{urlServer}}/ccn
+
+###
+GET {{urlServer}}/ccn
+Content-Type: application/json
+
+###
+POST {{urlServer}}/ccn
+Content-Type: application/json
+
+{
+    "name": ""
+}
+
+###
+POST {{urlServer}}/ccn
+Content-Type: application/json
+
+{
+  "name": "Master"
+}
+
+###
+GET {{urlServer}}/users
+
+###
+POST {{urlServer}}/users
+Content-Type: application/json
+
+{
+  "name": "Ivyna",
+  "creditCardNetworkId": "be008041-0c1a-46ec-b348-c4f5b3093457"
+}
+
+###
+POST {{urlServer}}/users
+Content-Type: application/json
+
+{
+  "name": "Ana Carol delete",
+  "creditCardNetworkId": "09e5dee9-7efc-4f6c-bc80-499ab34032d2",
+  "email" : "anacarol@web.ufop.br",
+  "password": "senha",
+  "city": "jm"
+}
+
+###
+GET {{urlServer}}/users/957cb853-d31c-4e6a-9944-14716466075b
+
+###
+GET {{urlServer}}/users/name/Ana
+
+###
+PUT {{urlServer}}/users
+Content-Type: application/json
+
+{
+  "id": "31235f95-3bdf-47d4-a74e-0f18ab7a35ac",
+  "name": "Ana Carol",
+  "city": "JM"
+}
+
+###
+DELETE {{urlServer}}/users
+Content-Type: application/json
+
+{
+  "id": "31235f95-3bdf-47d4-a74e-0f18ab7a35ac",
+  "password": "senha"
+}
