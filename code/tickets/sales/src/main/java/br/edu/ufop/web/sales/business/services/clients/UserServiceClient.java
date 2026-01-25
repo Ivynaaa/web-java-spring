@@ -8,13 +8,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 import java.util.UUID;
 
-@FeignClient(name = "users-service", url = "http://localhost:3000")
-public class UserServiceClient {
+@FeignClient("users-service-client")
+public interface UserServiceClient {
 
     @GetMapping("/users")
     public List<UserServiceDTO> getAllUsers();
 
     @GetMapping("/users/{id}")
-    public UserServiceDTO getById(@PathVariable(value = "id") UUID id);
+    public UserServiceDTO getById(@PathVariable(value = "id") UUID id); //interface que define requisição (fixo)
+
+    //quero multiplas intancias
+    //mapear e verificar se o ususario existe (talvez usar try cath)
 
 }
