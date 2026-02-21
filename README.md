@@ -3,7 +3,7 @@
 Desenvolvido em Java utilizando o framework Spring Boot, Docker e arquitetura de microsserviços.
 
 
-**Arquitetura de Microsserviços**
+**Arquitetura de Microsserviços:**
 
 Users Service: Gestão de usuários e autenticação.
 
