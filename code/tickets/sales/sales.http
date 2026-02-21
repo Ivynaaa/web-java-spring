@@ -1,0 +1,51 @@
+@baseUrl = http://localhost:4000
+@saleId = 6d96d949-04bb-4874-8d12-7a466b4bf57d
+
+################
+### CRIAR VENDAS
+POST {{baseUrl}}/sales
+Content-Type: application/json
+
+{
+  "userId": "",
+  "eventId": "59d528b0-215b-4a65-89e9-f9500bd0d08d"
+}
+
+###################
+### LISTA DE VENDAS
+GET {{baseUrl}}/sales
+
+#######################
+### BUSCAR VENDA POR ID
+GET {{baseUrl}}/sales/{{saleId}}
+
+#################################
+### ATUALIZAR STATUS DE PAGAMENTO
+PUT {{baseUrl}}/sales/{{saleId}}
+Content-Type: application/json
+
+{
+  "status": "PAGO"
+}
+
+##################
+### CANCELAR VENDA
+PUT {{baseUrl}}/sales/{{saleId}}
+Content-Type: application/json
+
+{
+  "status": "CANCELADO"
+}
+
+##################
+### ESTORNAR VENDA
+PUT {{baseUrl}}/sales/{{saleId}}
+Content-Type: application/json
+
+{
+  "status": "ESTORNADO"
+}
+
+#################
+### DELETAR VENDA
+DELETE {{baseUrl}}/sales/{{saleId}}

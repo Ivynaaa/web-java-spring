@@ -16,5 +16,4 @@ public class UserServiceDTO {
     private UUID id;
     private String name;
     private String email;
-
 }

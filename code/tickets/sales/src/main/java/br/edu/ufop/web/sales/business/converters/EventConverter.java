@@ -36,4 +36,5 @@ public class EventConverter {
                 .price(createEventDTO.getPrice())
                 .build();
     }
+
 }

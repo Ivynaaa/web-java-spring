@@ -3,6 +3,8 @@ package br.edu.ufop.web.sales.business.services;
 import br.edu.ufop.web.sales.business.converters.SaleConverter;
 import br.edu.ufop.web.sales.controller.dtos.sales.CreateSaleDTO;
 import br.edu.ufop.web.sales.controller.dtos.sales.SaleDTO;
+import br.edu.ufop.web.sales.controller.dtos.sales.UpdateSaleDTO;
+import br.edu.ufop.web.sales.enums.EnumSaleStatus;
 import br.edu.ufop.web.sales.infrastructure.entities.EventEntity;
 import br.edu.ufop.web.sales.infrastructure.entities.SaleEntity;
 import br.edu.ufop.web.sales.infrastructure.repositories.ISaleRepository;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -38,7 +41,7 @@ public class SaleService {
         Optional<EventEntity> eventEntityOptional = eventService.getById(createSaleDTO.getEventId());
 
         if (eventEntityOptional.isEmpty()) {
-            throw new RuntimeException("Event does not exists.");
+            throw new RuntimeException("O evento não existe");
         }
 
         saleEntity.setEvent(eventEntityOptional.get());
@@ -47,4 +50,39 @@ public class SaleService {
         return SaleConverter.toDTO(saleEntity);
 
     }
+
+    public SaleDTO getById(UUID id) {
+        SaleEntity saleEntity = saleRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Venda não foi encontrada"));
+
+        return SaleConverter.toDTO(saleEntity);
+    }
+
+    @Transactional
+    public SaleDTO update(UUID id, UpdateSaleDTO dto) {
+
+        SaleEntity saleEntity = saleRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Venda não foi encontrada"));
+
+        if (dto.getStatus() != null) {
+
+            if (dto.getStatus() == EnumSaleStatus.PAGO &&
+                    saleEntity.getStatus() != EnumSaleStatus.EM_ABERTO) {
+
+                throw new RuntimeException("Somente vendas em aberto podem ser pagas");
+            }
+
+            saleEntity.setStatus(dto.getStatus());
+        }
+
+        return SaleConverter.toDTO(saleEntity);
+    }
+
+    public void delete(UUID id) {
+        SaleEntity saleEntity = saleRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Venda não foi encontrada"));
+
+        saleRepository.delete(saleEntity);
+    }
+
 }

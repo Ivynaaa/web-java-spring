@@ -16,7 +16,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class SaleEntity {
-    //sales-> user_id, event_id, saleDate, saleStatus, createdAt, updatedAt
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

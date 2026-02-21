@@ -1,0 +1,42 @@
+@baseUrl = http://localhost:4000
+@eventId = c38c293b-88bb-478e-85ab-1e177ff00a3a
+
+#################
+### CRIA EVENTOS
+POST {{baseUrl}}/events
+Content-Type: application/json
+
+{
+  "description": "Palestra Dia D",
+  "type": 1,
+  "dateTime": "2026-03-07T09:00:00",
+  "startingSales": "2026-02-07T00:00:00",
+  "endingSales": "2026-03-06T23:59:00",
+  "price": 10.0
+}
+
+##################
+### LISTAR EVENTOS
+GET {{baseUrl}}/events
+
+#################
+### LISTAR POR ID
+GET {{baseUrl}}/events/{{eventId}}
+
+#####################
+### ATUALIZAR EVENTO
+PUT {{baseUrl}}/events/{{eventId}}
+Content-Type: application/json
+
+{
+  "description": "Show Jão",
+  "type": 2,
+  "dateTime": "2026-03-10T20:00:00",
+  "startingSales": "2026-02-01T00:00:00",
+  "endingSales": "2026-03-09T23:59:00",
+  "price": 300.0
+}
+
+##########
+### DELETE
+DELETE {{baseUrl}}/events/{{eventId}}

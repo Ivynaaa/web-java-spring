@@ -1,4 +1,3 @@
-
 package br.edu.ufop.web.sales.infrastructure.entities;
 
 import br.edu.ufop.web.sales.enums.EnumEventType;
