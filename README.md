@@ -16,6 +16,31 @@ Gateway (Spring Cloud Gateway): Ponto único de entrada, roteamento e segurança
 
 Nameserver (Eureka): Descoberta de serviços para comunicação inter-serviços.
 
+### Endpoints
+#### Events
+
+`POST /events`
+
+`GET /events`
+
+`GET /events/{id}`
+
+`PUT /events/{id}`
+
+`DELETE /events/{id}`
+
+#### Sales
+
+`POST /sales`
+
+`GET /sales`
+
+`GET /sales/{id}`
+
+`PUT /sales/{id}`
+
+`DELETE /sales/{id}`
+
 ---
 
 **Como Executar:**
