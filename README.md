@@ -1,5 +1,8 @@
-## Implementação do microsserviço de Vendas de Ingressos
+# Implementação do microsserviço de Vendas de Ingressos
 
+## Descrição
+
+A proposta desta atividade prática é o desenvolvimento do microsserviço de vendas (Sales) para a aplicação de Gerenciamentos de Tickets. Este microsserviço é responsável por registrar os eventos disponíveis e realizar a venda de ingressos para os usuários.
 Desenvolvido em Java utilizando o framework Spring Boot, Docker e arquitetura de microsserviços.
 
 
@@ -17,16 +20,25 @@ Nameserver (Eureka): Descoberta de serviços para comunicação inter-serviços.
 
 **Como Executar:**
 
-Certifique-se de ter o Docker e Java instalado.
+#### 1. Clonar o repositório
+```
 
-Na raiz do projeto, execute:
+git clone git@github.com:Ivynaaa/web-java-spring.git
 
 ```
+
+#### 2. Inicie o banco de Dados
+```
+
 docker-compose -f docker-compose-dev.yml up --build
+
 ```
+
 **Os seguintes serviços estarão disponíveis, inicialize-os nessa ordem:**
 
 * Nameserver
 * Gateway
 * Sales
 * Users
+
+Após iniciar o backend teste a aplicação utilizando o arquivo event.http e sales.http
