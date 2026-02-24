@@ -66,4 +66,4 @@ docker-compose -f docker-compose-dev.yml up --build
 * Sales
 * Users
 
-Após iniciar o backend teste a aplicação utilizando o arquivo event.http e sales.http
+Após iniciar o backend teste a aplicação utilizando o arquivo `event.rest`, `sales.rest` e `uses.rest`
